@@ -56,7 +56,6 @@ tradeRouter.get('/buy', async (req, res) => {
  */
 tradeRouter.get('/buy/:amount', async (req, res) => {
   const token = req.query.t;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const amount = parseInt((req.params as any).amount);
 
   if (token == undefined || typeof token != 'string') return res.sendStatus(404);

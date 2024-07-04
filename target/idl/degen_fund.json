@@ -1,0 +1,3152 @@
+{
+  "address": "ApfHASLQ4NPBx3D2JbpDQejHkEnkLa34dvE9DSrjQNVN",
+  "metadata": {
+    "name": "degen_fund",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "dev_locker_claim",
+      "discriminator": [
+        104,
+        96,
+        17,
+        236,
+        74,
+        182,
+        185,
+        96
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "base_mint",
+          "writable": true
+        },
+        {
+          "name": "dev_locker",
+          "docs": [
+            "Initialize dev locker."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  118,
+                  95,
+                  108,
+                  111,
+                  99,
+                  107,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "dev_locker_vault",
+          "writable": true
+        },
+        {
+          "name": "user_base_ata",
+          "writable": true
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "event_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  95,
+                  95,
+                  101,
+                  118,
+                  101,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "emergency_withdraw",
+      "discriminator": [
+        239,
+        45,
+        203,
+        64,
+        150,
+        73,
+        218,
+        92
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true,
+          "address": "dev6AMdRCezC37X2RgdVnBUhka1zeKnHinBvwhPW4bg"
+        },
+        {
+          "name": "base_mint",
+          "writable": true
+        },
+        {
+          "name": "quote_mint",
+          "writable": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "base_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "quote_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "emergency_wallet",
+          "writable": true,
+          "address": "dev6AMdRCezC37X2RgdVnBUhka1zeKnHinBvwhPW4bg"
+        },
+        {
+          "name": "emergency_base_ata",
+          "writable": true
+        },
+        {
+          "name": "emergency_quote_ata",
+          "writable": true
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "legacy_token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "event_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  95,
+                  95,
+                  101,
+                  118,
+                  101,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "fee_collector_claim",
+      "discriminator": [
+        157,
+        112,
+        142,
+        26,
+        83,
+        223,
+        126,
+        2
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "docs": [
+            "Address to be set as protocol owner."
+          ],
+          "writable": true,
+          "signer": true,
+          "address": "dev6AMdRCezC37X2RgdVnBUhka1zeKnHinBvwhPW4bg"
+        },
+        {
+          "name": "fee_collector",
+          "docs": [
+            "fee collector state account."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  95,
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "treasury",
+          "writable": true
+        },
+        {
+          "name": "mint",
+          "writable": true
+        },
+        {
+          "name": "fee_vault",
+          "writable": true
+        },
+        {
+          "name": "treasury_vault",
+          "writable": true
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initialize_dev_locker",
+      "discriminator": [
+        97,
+        30,
+        134,
+        254,
+        185,
+        180,
+        26,
+        179
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "base_mint",
+          "writable": true
+        },
+        {
+          "name": "dev_locker",
+          "docs": [
+            "Initialize dev locker."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  118,
+                  95,
+                  108,
+                  111,
+                  99,
+                  107,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "lock_duration",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_fee_collector",
+      "discriminator": [
+        197,
+        234,
+        132,
+        77,
+        108,
+        38,
+        60,
+        215
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "docs": [
+            "Address to be set as protocol owner."
+          ],
+          "writable": true,
+          "signer": true,
+          "address": "dev6AMdRCezC37X2RgdVnBUhka1zeKnHinBvwhPW4bg"
+        },
+        {
+          "name": "fee_collector",
+          "docs": [
+            "Initialize fee collector account."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  95,
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "InitializeFeeCollectorParams"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "initialize_global",
+      "discriminator": [
+        47,
+        225,
+        15,
+        112,
+        86,
+        51,
+        190,
+        231
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "docs": [
+            "Address to be set as protocol owner."
+          ],
+          "writable": true,
+          "signer": true,
+          "address": "dev6AMdRCezC37X2RgdVnBUhka1zeKnHinBvwhPW4bg"
+        },
+        {
+          "name": "global",
+          "docs": [
+            "Initialize global account."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "InitializeGlobalParams"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "initialize_quote_config",
+      "discriminator": [
+        227,
+        24,
+        140,
+        1,
+        44,
+        184,
+        223,
+        12
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "docs": [
+            "Address to be set as protocol owner."
+          ],
+          "writable": true,
+          "signer": true,
+          "address": "dev6AMdRCezC37X2RgdVnBUhka1zeKnHinBvwhPW4bg"
+        },
+        {
+          "name": "quote_mint",
+          "docs": [
+            "Quote mint for the quote config state."
+          ]
+        },
+        {
+          "name": "quote_config",
+          "docs": [
+            "Initialize quote config state account."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  113,
+                  117,
+                  111,
+                  116,
+                  101,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "quote_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "fee_collector",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  95,
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fee_vault",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "InitializeQuoteConfigParams"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "initialize_spl22_pool",
+      "discriminator": [
+        116,
+        45,
+        224,
+        80,
+        242,
+        181,
+        161,
+        70
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "base_mint",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "quote_mint",
+          "writable": true
+        },
+        {
+          "name": "quote_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  113,
+                  117,
+                  111,
+                  116,
+                  101,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "quote_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "dev_locker",
+          "writable": true,
+          "optional": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  118,
+                  95,
+                  108,
+                  111,
+                  99,
+                  107,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              },
+              {
+                "kind": "account",
+                "path": "payer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "base_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "quote_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "legacy_token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "event_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  95,
+                  95,
+                  101,
+                  118,
+                  101,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "token_params",
+          "type": {
+            "defined": {
+              "name": "TaxTokenParams"
+            }
+          }
+        },
+        {
+          "name": "pool_params",
+          "type": {
+            "defined": {
+              "name": "TaxPoolParams"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "initialize_spl_pool",
+      "discriminator": [
+        220,
+        77,
+        162,
+        14,
+        209,
+        171,
+        12,
+        200
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "base_mint",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "quote_mint",
+          "docs": [
+            "TODO: Constraint quote mitn"
+          ],
+          "writable": true
+        },
+        {
+          "name": "metadata",
+          "writable": true
+        },
+        {
+          "name": "quote_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  113,
+                  117,
+                  111,
+                  116,
+                  101,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "quote_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "dev_locker",
+          "writable": true,
+          "optional": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  118,
+                  95,
+                  108,
+                  111,
+                  99,
+                  107,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              },
+              {
+                "kind": "account",
+                "path": "payer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "base_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "quote_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "event_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  95,
+                  95,
+                  101,
+                  118,
+                  101,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "token_params",
+          "type": {
+            "defined": {
+              "name": "TokenParams"
+            }
+          }
+        },
+        {
+          "name": "pool_params",
+          "type": {
+            "defined": {
+              "name": "PoolParams"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "initialize_user_ata",
+      "discriminator": [
+        165,
+        55,
+        215,
+        245,
+        73,
+        43,
+        157,
+        105
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "base_mint",
+          "writable": true
+        },
+        {
+          "name": "quote_mint",
+          "writable": true
+        },
+        {
+          "name": "user_base_ata",
+          "writable": true
+        },
+        {
+          "name": "user_quote_ata",
+          "writable": true
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "legacy_token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "swap_quote_input",
+      "discriminator": [
+        172,
+        104,
+        84,
+        51,
+        64,
+        145,
+        171,
+        216
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "global_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "antibot_server",
+          "writable": true,
+          "signer": true,
+          "optional": true
+        },
+        {
+          "name": "base_mint",
+          "writable": true
+        },
+        {
+          "name": "quote_mint",
+          "writable": true
+        },
+        {
+          "name": "user_base_ata",
+          "writable": true
+        },
+        {
+          "name": "user_quote_ata",
+          "writable": true
+        },
+        {
+          "name": "quote_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  113,
+                  117,
+                  111,
+                  116,
+                  101,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "quote_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "base_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "quote_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "fee_collector",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  95,
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fee_vault",
+          "writable": true
+        },
+        {
+          "name": "dev_locker",
+          "writable": true,
+          "optional": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  118,
+                  95,
+                  108,
+                  111,
+                  99,
+                  107,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "dev_locker_vault",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "legacy_token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "event_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  95,
+                  95,
+                  101,
+                  118,
+                  101,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount_in",
+          "type": "u64"
+        },
+        {
+          "name": "minimum_amount_out",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "swap_quote_output",
+      "discriminator": [
+        255,
+        93,
+        1,
+        197,
+        35,
+        140,
+        94,
+        193
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "global",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "base_mint",
+          "writable": true
+        },
+        {
+          "name": "quote_mint",
+          "writable": true
+        },
+        {
+          "name": "user_base_ata",
+          "writable": true
+        },
+        {
+          "name": "user_quote_ata",
+          "writable": true
+        },
+        {
+          "name": "quote_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  113,
+                  117,
+                  111,
+                  116,
+                  101,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "quote_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "base_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              },
+              {
+                "kind": "account",
+                "path": "quote_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "fee_collector",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  95,
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fee_vault",
+          "writable": true
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "legacy_token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "event_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  95,
+                  95,
+                  101,
+                  118,
+                  101,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount_out",
+          "type": "u64"
+        },
+        {
+          "name": "maximum_amount_in",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "update_fee_collector",
+      "discriminator": [
+        132,
+        54,
+        153,
+        82,
+        79,
+        118,
+        79,
+        212
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "docs": [
+            "Address to be set as protocol owner."
+          ],
+          "writable": true,
+          "signer": true,
+          "address": "dev6AMdRCezC37X2RgdVnBUhka1zeKnHinBvwhPW4bg"
+        },
+        {
+          "name": "fee_collector",
+          "docs": [
+            "fee collector state account."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  101,
+                  101,
+                  95,
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  111,
+                  114
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "UpdateFeeCollectorParams"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "update_global",
+      "discriminator": [
+        90,
+        152,
+        240,
+        21,
+        199,
+        38,
+        72,
+        20
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "docs": [
+            "Address to be set as protocol owner."
+          ],
+          "writable": true,
+          "signer": true,
+          "address": "dev6AMdRCezC37X2RgdVnBUhka1zeKnHinBvwhPW4bg"
+        },
+        {
+          "name": "global",
+          "docs": [
+            "quote config state account."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "UpdateGlobalParams"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "update_pool",
+      "discriminator": [
+        239,
+        214,
+        170,
+        78,
+        36,
+        35,
+        30,
+        34
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "base_mint",
+          "writable": true
+        },
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "base_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "event_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  95,
+                  95,
+                  101,
+                  118,
+                  101,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "update_pool_params",
+          "type": {
+            "defined": {
+              "name": "UpdatePoolStateParams"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "update_quote_config",
+      "discriminator": [
+        170,
+        228,
+        75,
+        96,
+        193,
+        45,
+        47,
+        97
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "docs": [
+            "Address to be set as protocol owner."
+          ],
+          "writable": true,
+          "signer": true,
+          "address": "dev6AMdRCezC37X2RgdVnBUhka1zeKnHinBvwhPW4bg"
+        },
+        {
+          "name": "quote_mint",
+          "docs": [
+            "Quote mint for the quote_config state."
+          ]
+        },
+        {
+          "name": "quote_config",
+          "docs": [
+            "Update quote_config state account."
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  113,
+                  117,
+                  111,
+                  116,
+                  101,
+                  95,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "quote_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "event_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  95,
+                  95,
+                  101,
+                  118,
+                  101,
+                  110,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "UpdateQuoteConfigParams"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "DevLocker",
+      "discriminator": [
+        210,
+        115,
+        175,
+        60,
+        73,
+        54,
+        78,
+        75
+      ]
+    },
+    {
+      "name": "FeeCollector",
+      "discriminator": [
+        250,
+        213,
+        73,
+        200,
+        175,
+        76,
+        225,
+        213
+      ]
+    },
+    {
+      "name": "Global",
+      "discriminator": [
+        167,
+        232,
+        232,
+        177,
+        200,
+        108,
+        114,
+        127
+      ]
+    },
+    {
+      "name": "Pool",
+      "discriminator": [
+        241,
+        154,
+        109,
+        4,
+        17,
+        177,
+        109,
+        188
+      ]
+    },
+    {
+      "name": "QuoteConfig",
+      "discriminator": [
+        212,
+        148,
+        253,
+        35,
+        84,
+        28,
+        182,
+        112
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "DevLockerClaimed",
+      "discriminator": [
+        198,
+        90,
+        203,
+        214,
+        241,
+        121,
+        239,
+        197
+      ]
+    },
+    {
+      "name": "EmergencyWithdrawEvent",
+      "discriminator": [
+        177,
+        61,
+        254,
+        20,
+        145,
+        18,
+        188,
+        237
+      ]
+    },
+    {
+      "name": "PoolCreated",
+      "discriminator": [
+        202,
+        44,
+        41,
+        88,
+        104,
+        220,
+        157,
+        82
+      ]
+    },
+    {
+      "name": "PoolFilled",
+      "discriminator": [
+        121,
+        57,
+        245,
+        132,
+        77,
+        76,
+        171,
+        179
+      ]
+    },
+    {
+      "name": "PoolStateUpdated",
+      "discriminator": [
+        231,
+        22,
+        226,
+        177,
+        26,
+        215,
+        227,
+        97
+      ]
+    },
+    {
+      "name": "SwapEvent",
+      "discriminator": [
+        64,
+        198,
+        205,
+        232,
+        38,
+        8,
+        113,
+        226
+      ]
+    },
+    {
+      "name": "UpdateQuoteConfig",
+      "discriminator": [
+        161,
+        17,
+        117,
+        81,
+        143,
+        84,
+        4,
+        53
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidTokenName",
+      "msg": "Invalid token name"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidTokenSymbol",
+      "msg": "Invalid token symbol"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidTokenUri",
+      "msg": "Invalid token uri"
+    },
+    {
+      "code": 6003,
+      "name": "NameTooLong",
+      "msg": "Name too long"
+    },
+    {
+      "code": 6004,
+      "name": "SymbolTooLong",
+      "msg": "Symbol too long"
+    },
+    {
+      "code": 6005,
+      "name": "UriTooLong",
+      "msg": "Uri too long"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidQuoteDelta",
+      "msg": "InvalidQuoteDelta"
+    },
+    {
+      "code": 6007,
+      "name": "InvalidTransferTax",
+      "msg": "InvalidTransferTax"
+    },
+    {
+      "code": 6008,
+      "name": "InvalidDumpTax",
+      "msg": "InvalidDumpTax"
+    },
+    {
+      "code": 6009,
+      "name": "UnAuthorised",
+      "msg": "Unauthorised"
+    },
+    {
+      "code": 6010,
+      "name": "InSufficientFund",
+      "msg": "Insufficient fund"
+    },
+    {
+      "code": 6011,
+      "name": "UnknownToken",
+      "msg": "One token should be Sol"
+    },
+    {
+      "code": 6012,
+      "name": "TokenNotSellable",
+      "msg": "Token not sellable"
+    },
+    {
+      "code": 6013,
+      "name": "TradingNotStarted",
+      "msg": "Trading not started"
+    },
+    {
+      "code": 6014,
+      "name": "TradingEnded",
+      "msg": "Trading ended"
+    },
+    {
+      "code": 6015,
+      "name": "TradingNotEnded",
+      "msg": "Trading not ended"
+    },
+    {
+      "code": 6016,
+      "name": "MaxBuyWalletExceeded",
+      "msg": "Max buy wallet exceeded"
+    },
+    {
+      "code": 6017,
+      "name": "SlippageError",
+      "msg": "Slippage not met"
+    },
+    {
+      "code": 6018,
+      "name": "Overflow",
+      "msg": "Overflow"
+    },
+    {
+      "code": 6019,
+      "name": "TradingPaused",
+      "msg": "TradingPaused"
+    },
+    {
+      "code": 6020,
+      "name": "PoolAlreadyInitialized",
+      "msg": "PoolAlreadyInitialized"
+    },
+    {
+      "code": 6021,
+      "name": "AntibotError",
+      "msg": "AntibotError"
+    },
+    {
+      "code": 6022,
+      "name": "DevLockerLocked",
+      "msg": "Not yet unlocked"
+    },
+    {
+      "code": 6023,
+      "name": "AlreadyClaimed",
+      "msg": "Already claimed"
+    }
+  ],
+  "types": [
+    {
+      "name": "DevLocker",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "mint",
+            "docs": [
+              "Address of the mint"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "dev",
+            "docs": [
+              "Dev address"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "unlock_timestamp",
+            "docs": [
+              "Unlock timestamp"
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "is_claimed",
+            "docs": [
+              "lock status"
+            ],
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DevLockerClaimed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "user",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EmergencyWithdrawEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pool",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FeeCollector",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "treasury",
+            "docs": [
+              "Address of the treasury"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "vault",
+            "docs": [
+              "Address of the vault"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "rev_share_bps",
+            "docs": [
+              "Revenue share basis points"
+            ],
+            "type": "u16"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Global",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "antibot_server",
+            "docs": [
+              "Address of the antibot server"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "trading_paused",
+            "docs": [
+              "Trade pause status"
+            ],
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InitializeFeeCollectorParams",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "treasury",
+            "type": "pubkey"
+          },
+          {
+            "name": "vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "rev_share_bps",
+            "type": "u16"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InitializeGlobalParams",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "antibot_server",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InitializeQuoteConfigParams",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "seeder",
+            "type": "pubkey"
+          },
+          {
+            "name": "trading_fee_bps",
+            "type": "u16"
+          },
+          {
+            "name": "seeding_fee_bps",
+            "type": "u16"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Pool",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creator",
+            "docs": [
+              "Creator of the pool"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "base_mint",
+            "docs": [
+              "Base token"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_mint",
+            "docs": [
+              "Quote token"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "base_program",
+            "docs": [
+              "Base token program"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_program",
+            "docs": [
+              "Quote token program"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "base_reserve",
+            "docs": [
+              "base and quote reserves"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "quote_reserve",
+            "type": "u64"
+          },
+          {
+            "name": "base_delta",
+            "type": "u64"
+          },
+          {
+            "name": "quote_delta",
+            "type": "u64"
+          },
+          {
+            "name": "transfer_tax",
+            "docs": [
+              "transfer tax"
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "buy_tax_bps",
+            "docs": [
+              "buy tax"
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "sell_tax_bps",
+            "docs": [
+              "sell tax"
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "is_unsellable",
+            "docs": [
+              "If token is unsellable"
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "max_buy_wallet",
+            "docs": [
+              "max buy per wallet"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "start_time",
+            "docs": [
+              "The timestamp allowed for swap in the pool."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "is_filled",
+            "docs": [
+              "Filled status"
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "is_paused",
+            "docs": [
+              "Filled status"
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "is_seeded",
+            "docs": [
+              "Filled status"
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "is_dev_locked",
+            "docs": [
+              "Dev locker"
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "antibot_enabled",
+            "docs": [
+              "Antibot"
+            ],
+            "type": "bool"
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "padding",
+            "docs": [
+              "padding for future updates"
+            ],
+            "type": {
+              "array": [
+                "u64",
+                32
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "PoolCreated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pool",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "token_name",
+            "type": "string"
+          },
+          {
+            "name": "token_symbol",
+            "type": "string"
+          },
+          {
+            "name": "token_uri",
+            "type": "string"
+          },
+          {
+            "name": "transfer_tax",
+            "type": "i16"
+          },
+          {
+            "name": "quote_delta",
+            "type": "u64"
+          },
+          {
+            "name": "max_buy_wallet",
+            "type": "u64"
+          },
+          {
+            "name": "start_time",
+            "type": "i64"
+          },
+          {
+            "name": "antibot_enabled",
+            "type": "bool"
+          },
+          {
+            "name": "is_dev_locked",
+            "type": "bool"
+          },
+          {
+            "name": "unlock_timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "buy_tax_bps",
+            "type": "u16"
+          },
+          {
+            "name": "sell_tax_bps",
+            "type": "u16"
+          },
+          {
+            "name": "is_unsellable",
+            "type": "bool"
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PoolFilled",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pool",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PoolParams",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "quote_delta",
+            "type": "u64"
+          },
+          {
+            "name": "max_buy_wallet",
+            "type": "u64"
+          },
+          {
+            "name": "start_time",
+            "type": "i64"
+          },
+          {
+            "name": "antibot_enabled",
+            "type": "bool"
+          },
+          {
+            "name": "sell_tax_bps",
+            "type": "u16"
+          },
+          {
+            "name": "is_unsellable",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PoolStateUpdated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "antibot_enabled",
+            "type": "bool"
+          },
+          {
+            "name": "max_buy_wallet",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "QuoteConfig",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "quote_mint",
+            "docs": [
+              "Global state for quote"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "seeder",
+            "docs": [
+              "Address of the seeder"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "trading_fee_bps",
+            "docs": [
+              "Trading fee in basis points"
+            ],
+            "type": "u16"
+          },
+          {
+            "name": "seeding_fee_bps",
+            "docs": [
+              "Seeding fee in basis points"
+            ],
+            "type": "u16"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SwapEvent",
+      "docs": [
+        "Emitted when swap"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "pool",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount_in",
+            "type": "u64"
+          },
+          {
+            "name": "amount_out",
+            "type": "u64"
+          },
+          {
+            "name": "new_base_reserve",
+            "type": "u64"
+          },
+          {
+            "name": "new_quote_reserve",
+            "type": "u64"
+          },
+          {
+            "name": "quote_input",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TaxPoolParams",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "quote_delta",
+            "type": "u64"
+          },
+          {
+            "name": "max_buy_wallet",
+            "type": "u64"
+          },
+          {
+            "name": "start_time",
+            "type": "i64"
+          },
+          {
+            "name": "antibot_enabled",
+            "type": "bool"
+          },
+          {
+            "name": "sell_tax_bps",
+            "type": "u16"
+          },
+          {
+            "name": "is_unsellable",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TaxTokenParams",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "name": "transfer_tax",
+            "type": "u16"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TokenParams",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateFeeCollectorParams",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "treasury",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "vault",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "rev_share_bps",
+            "type": {
+              "option": "u16"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateGlobalParams",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "antibot_server",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "trading_paused",
+            "type": {
+              "option": "bool"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdatePoolStateParams",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "antibot_enabled",
+            "type": {
+              "option": "bool"
+            }
+          },
+          {
+            "name": "max_buy_wallet",
+            "type": {
+              "option": "u64"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateQuoteConfig",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "seeder",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "trading_fee_bps",
+            "type": {
+              "option": "u16"
+            }
+          },
+          {
+            "name": "seeding_fee_bps",
+            "type": {
+              "option": "u16"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateQuoteConfigParams",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "seeder",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "trading_fee_bps",
+            "type": {
+              "option": "u16"
+            }
+          },
+          {
+            "name": "seeding_fee_bps",
+            "type": {
+              "option": "u16"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,16 +1,16 @@
-import { clusterApiUrl, Connection, PublicKey } from '@solana/web3.js';
+import { PublicKey } from '@solana/web3.js';
 import { programs } from '@metaplex/js';
+
+import { degenFundSdk } from '@/shared/degenFundSdk';
 
 const {
   metadata: { Metadata },
 } = programs;
 
-const connection = new Connection(clusterApiUrl('mainnet-beta'), 'finalized');
-
 export const getMetadata = async (tokenAddress: string): Promise<programs.metadata.MetadataData | undefined> => {
   try {
     const metadataPDA = await Metadata.getPDA(new PublicKey(tokenAddress));
-    const tokenMetadata = await Metadata.load(connection, metadataPDA);
+    const tokenMetadata = await Metadata.load(degenFundSdk.connection, metadataPDA);
 
     return tokenMetadata.data;
   } catch (e) {
