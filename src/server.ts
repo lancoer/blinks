@@ -1,12 +1,12 @@
 import express, { Express } from 'express';
 import dotenv from 'dotenv';
 
+dotenv.config();
+
 import tradeRouter from './routes/trade';
 import apiRouter from './routes/api';
 
 // Server configuration
-dotenv.config();
-
 const app: Express = express();
 const port = process.env.PORT || 3000;
 

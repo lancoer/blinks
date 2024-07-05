@@ -3,6 +3,7 @@ import { ActionGetResponse, ACTIONS_CORS_HEADERS } from '@solana/actions';
 
 import { getMetadata } from '@/utils/getMetadata';
 import { getIpfsJson } from '@/utils/getIpfsJson';
+import { changeIpfsScheme } from '@/utils/changeIpfsScheme';
 
 const tradeRouter = express.Router();
 
@@ -22,13 +23,13 @@ tradeRouter.get('/buy', async (req, res) => {
 
   if (token == undefined || typeof token != 'string') return res.sendStatus(404);
 
-  const tokenMetadata = (await getMetadata(token))?.data;
+  const { tokenMetadata } = await getMetadata(token);
 
   // TODO: Stylize or show error message
-  if (tokenMetadata == undefined) return res.sendStatus(400);
+  if (tokenMetadata == null) return res.sendStatus(400);
 
   const buyResponse: ActionGetResponse = {
-    icon: (await getIpfsJson(tokenMetadata.uri)).image,
+    icon: changeIpfsScheme((await getIpfsJson(changeIpfsScheme(tokenMetadata.uri))).image),
     label: '0.1 SOL',
     title: `Buy ${tokenMetadata.symbol} with your SOLs`,
     description: `Buy ${tokenMetadata.name} on Degen Fund with your SOLs.`,
@@ -61,13 +62,13 @@ tradeRouter.get('/buy/:amount', async (req, res) => {
   if (token == undefined || typeof token != 'string') return res.sendStatus(404);
   if (Number.isNaN(amount)) return res.sendStatus(400);
 
-  const tokenMetadata = (await getMetadata(token))?.data;
+  const { tokenMetadata } = await getMetadata(token);
 
   // TODO: Stylize or show error message
-  if (tokenMetadata == undefined) return res.sendStatus(400);
+  if (tokenMetadata == null) return res.sendStatus(400);
 
   const buyCustomResponse: ActionGetResponse = {
-    icon: (await getIpfsJson(tokenMetadata.uri)).image,
+    icon: changeIpfsScheme((await getIpfsJson(changeIpfsScheme(tokenMetadata.uri))).image),
     label: `${amount} SOL`,
     title: `Buy ${tokenMetadata.symbol} with your SOLs`,
     description: `Buy ${tokenMetadata.name} on Degen Fund with your SOLs.`,

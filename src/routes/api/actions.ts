@@ -1,7 +1,6 @@
 import express from 'express';
 import { PublicKey } from '@solana/web3.js';
 import { ActionPostRequest, ActionPostResponse } from '@solana/actions';
-import { NATIVE_MINT } from '@solana/spl-token';
 
 import { getMetadata } from '@/utils/getMetadata';
 import { degenFundSdk } from '@/shared/degenFundSdk';
@@ -21,10 +20,10 @@ actionsRouter.post('/buy', async (req, res) => {
   if (token == undefined || typeof token != 'string') return res.sendStatus(404);
   if (Number.isNaN(amount)) return res.sendStatus(400);
 
-  const tokenMetadata = (await getMetadata(token))?.data;
+  const { tokenMetadata, tokenOwner } = await getMetadata(token);
 
   // TODO: Stylize or show error message
-  if (tokenMetadata == undefined) return res.sendStatus(400);
+  if (tokenMetadata == null) return res.sendStatus(400);
 
   // TODO: Check whether pool exists too
 
@@ -32,11 +31,12 @@ actionsRouter.post('/buy', async (req, res) => {
   const buyRequest: ActionPostRequest = req.body;
 
   const buyInstructions = [
+    ...(await degenFundSdk.getWrapSolInx(amount)),
     await degenFundSdk.swapQuoteInputInstruction({
-      mint: NATIVE_MINT.toString(),
+      mint: token,
       amountIn: amount,
       minimumAmountOut: 0,
-      tokenProgram: new PublicKey(token),
+      tokenProgram: tokenOwner,
     }),
   ];
 
