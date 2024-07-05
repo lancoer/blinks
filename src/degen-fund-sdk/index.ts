@@ -370,8 +370,8 @@ export class DegenFundSdk {
     return instruction;
   }
 
-  async initializeUserAtaInstruction(input: { mint: string; tokenProgram: web3.PublicKey }) {
-    const buyer = this.provider.publicKey;
+  async initializeUserAtaInstruction(input: { mint: string; tokenProgram: web3.PublicKey; payer?: web3.PublicKey }) {
+    const buyer = input.payer || this.provider.publicKey;
     const baseMint = new PublicKey(input.mint);
 
     const userBaseAta = getAssociatedTokenAddressSync(baseMint, buyer, true, input.tokenProgram);

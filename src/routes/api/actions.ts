@@ -1,5 +1,5 @@
 import express from 'express';
-import { LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
+import { PublicKey } from '@solana/web3.js';
 import { ActionPostRequest, ActionPostResponse } from '@solana/actions';
 
 import { getMetadata } from '@/utils/getMetadata';
@@ -30,17 +30,24 @@ actionsRouter.post('/buy', async (req, res) => {
   // FIXME: Can be bad request over here
   const buyRequest: ActionPostRequest = req.body;
 
+  const payer = new PublicKey(buyRequest.account);
+
   const buyInstructions = [
+    await degenFundSdk.initializeUserAtaInstruction({
+      mint: token,
+      tokenProgram: tokenOwner,
+      payer,
+    }),
     ...(await degenFundSdk.getWrapSolInx(amount)),
     await degenFundSdk.swapQuoteInputInstruction({
       mint: token,
-      amountIn: amount * LAMPORTS_PER_SOL,
+      amountIn: amount,
       minimumAmountOut: 0,
       tokenProgram: tokenOwner,
     }),
   ];
 
-  const buyTransaction = await prepareTransaction(buyInstructions, new PublicKey(buyRequest.account));
+  const buyTransaction = await prepareTransaction(buyInstructions, payer);
 
   // degenFundSdk.provider.sendAndConfirm(buyTransaction, [], { skipPreflight: true });
 
