@@ -1,5 +1,5 @@
 import express from 'express';
-import { PublicKey } from '@solana/web3.js';
+import { LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
 import { ActionPostRequest, ActionPostResponse } from '@solana/actions';
 
 import { getMetadata } from '@/utils/getMetadata';
@@ -15,7 +15,7 @@ const actionsRouter = express.Router();
  */
 actionsRouter.post('/buy', async (req, res) => {
   const token = req.query.t;
-  const amount = parseInt((req.query as any).amount);
+  const amount = parseFloat((req.query as any).amount);
 
   if (token == undefined || typeof token != 'string') return res.sendStatus(404);
   if (Number.isNaN(amount)) return res.sendStatus(400);
@@ -34,7 +34,7 @@ actionsRouter.post('/buy', async (req, res) => {
     ...(await degenFundSdk.getWrapSolInx(amount)),
     await degenFundSdk.swapQuoteInputInstruction({
       mint: token,
-      amountIn: amount,
+      amountIn: amount * LAMPORTS_PER_SOL,
       minimumAmountOut: 0,
       tokenProgram: tokenOwner,
     }),
@@ -42,9 +42,11 @@ actionsRouter.post('/buy', async (req, res) => {
 
   const buyTransaction = await prepareTransaction(buyInstructions, new PublicKey(buyRequest.account));
 
+  // degenFundSdk.provider.sendAndConfirm(buyTransaction, [], { skipPreflight: true });
+
   const buyResponse: ActionPostResponse = {
     transaction: Buffer.from(buyTransaction.serialize()).toString('base64'),
-    message: `Buy \$${tokenMetadata.symbol} with ${amount} SOL`,
+    message: `Bought \$${tokenMetadata.symbol} with ${amount} SOL`,
   };
 
   res.json(buyResponse);

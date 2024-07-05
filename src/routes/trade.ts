@@ -57,7 +57,7 @@ tradeRouter.get('/buy', async (req, res) => {
  */
 tradeRouter.get('/buy/:amount', async (req, res) => {
   const token = req.query.t;
-  const amount = parseInt((req.params as any).amount);
+  const amount = parseFloat((req.params as any).amount);
 
   if (token == undefined || typeof token != 'string') return res.sendStatus(404);
   if (Number.isNaN(amount)) return res.sendStatus(400);
@@ -70,8 +70,8 @@ tradeRouter.get('/buy/:amount', async (req, res) => {
   const buyCustomResponse: ActionGetResponse = {
     icon: changeIpfsScheme((await getIpfsJson(changeIpfsScheme(tokenMetadata.uri))).image),
     label: `${amount} SOL`,
-    title: `Buy ${tokenMetadata.symbol} with your SOLs`,
-    description: `Buy ${tokenMetadata.name} on Degen Fund with your SOLs.`,
+    title: `Buy ${tokenMetadata.symbol} with ${amount} SOLs`,
+    description: `Buy ${tokenMetadata.name} on Degen Fund with ${amount} SOLs.`,
   };
 
   res.json(buyCustomResponse);
